@@ -1,20 +1,45 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<h1>Yelpie Yelp!</h1>
 
+<form (submit) = "sendFetch(input.value, price.value); false;">
+  <label>Price</label>
+
+  <select #price> 
+    <option value = "$">$</option>
+    <option value = "$$">$$</option>
+    <option value = "$$$">$$$</option>
+    <option value = "$$$$">$$$$</option>
+  </select>
+
+  <label>Location</label>
+  <input #input />
+
+  <button type = "submit" >Submit</button>
+</form>
+
+<div *ngIf = "dinnerDone == true"> 
+  <img src = {{dinner.image_url}} /> 
+  <ul>
+    <li>Rating: {{ratingView}}</li>
+    <li>Name: {{dinner.name}}</li>
+    <li>Address: {{dinner.location.address1}}</li>
+    <li>City: {{dinner.location.city}}</li>
+    <li>Phone: {{dinner.phone}}</li>
+    <li *ngIf = "transaction == true">Delivery: Yes</li>
+  </ul>
+</div>
+
+<!-- bring in the image in this div -->
+
+<!-- Using the Yelp API, build an angular application that allows a user to find a random restaurant based on their location and price point. The restaurant that is returned must be opened at the time of the search, if not the user should not see it.
+
+The restaurant details that is shown in the app should be:
+image
+rating (as stars)
+Restaurant name 
+Address
+phone number 
+If it delivers or not
+If time add in a google map of the location 
+(having axios and backend)
+
+https://www.yelp.com/developers/documentation/v3/get_started -->
